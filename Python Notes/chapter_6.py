@@ -51,4 +51,47 @@
 
 #   *6.5 - Encapsulation and Generalization*
 
-#       
+#       Encapsulation is the process of wrapping a piece of code in a function, allowing you to take advantage of all the things functions are good for.
+#       You have seen two examples of encapsulation: printParity in Section 4.5; and isDivisible in Section 5.4.
+
+#       Generalization means taking something specific, such as printing the multiples of 2, and making it more general, such as printing the multiples of any integer.
+
+#       This function encapsulates the previous loop and generalizes it to print multiples of n:
+
+            def printMultiples(n):
+              i = 1
+              while i <= 6:
+                print n*i, '\t',
+                i = i + 1
+              print
+
+#       To encapsulate, all we had to do was add the first line, which declares the name of the function and the parameter list.
+#       To generalize, all we had to do was replace the value 2 with the parameter n.
+
+#       If we call this function with the argument 2, we get the same output as before.
+#       With the argument 3, the output is:
+
+            3      6      9      12     15     18
+
+#       With the argument 4, the output is:
+
+            4      8      12     16     20     24
+
+#       By now you can probably guess how to print a multiplication table by calling printMultiples repeatedly with different arguments.
+#       In fact, we can use another loop:
+
+            i = 1
+            while i <= 6:
+              printMultiples(i)
+              i = i + 1
+
+#       Notice how similar this loop is to the one inside printMultiples. All we did was replace the print statement with a function call.
+
+#       The output of this program is a multiplication table:
+
+            1      2      3      4      5      6
+            2      4      6      8      10     12
+            3      6      9      12     15     18
+            4      8      12     16     20     24
+            5      10     15     20     25     30
+            6      12     18     24     30     36
