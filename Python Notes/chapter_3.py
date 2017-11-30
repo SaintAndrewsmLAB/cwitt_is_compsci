@@ -127,3 +127,135 @@
 #       The sum is then passed as an argument to the cos function.
 
 #   *3.6 - Adding New Functions*
+
+#       It's possible to add functions that are not built into Python.
+#       Creating new functions to solve your particular problems is one of the most useful things about a general-purpose programming language.
+
+#       Function - named sequence of statements that performs a desired operation.
+
+#       The syntax for a function definition is:
+
+            def NAME( LIST OF PARAMETERS ):
+                STATEMENTS
+
+#       The list of parameters specifies what information, if any, you have to provide in order to use the new function.
+
+#       Some reasons why creating new functions is effective:
+
+#           Creating a new function gives you an opportunity to name a group of statements. /
+#           Functions can simplify a program by hiding a complex computation behind a single command and by using English words in place of arcane code.
+
+#           Creating a new function can make a program smaller by eliminating repetitive code. /
+#           For example, a short way to print nine consecutive new lines is to call threeLines three times.
+
+#   *3.7 - Definitions and Use*
+
+#       Pulling together the code fragments from Section 3.6, the whole program looks like this:
+
+            def newLine():
+              print
+
+            def threeLines():
+              newLine()
+              newLine()
+              newLine()
+
+            print "First Line."
+            threeLines()
+            print "Second Line."
+
+#       As you might expect, you have to create a function before you can execute it.
+#       In other words, the function definition has to be executed before the first time it is called.
+
+#   *3.8 - Flow of Execution*
+
+#       Flow of Execution - the order in which statements are executed
+#           Statements are executed one at a time, in order from top to bottom
+
+#       Function definitions do not alter the flow of execution of the program,
+#       but remember that statements inside the function are not executed until the function is called.
+
+#       Although it is not common, you can define one function inside another.
+#       In this case, the inner definition isn't executed until the outer function is called.
+
+#       Function calls are like a detour in the flow of execution.
+#       Instead of going to the next statement, the flow jumps to the first line of the called function, executes all the statements there, and then comes back to pick up where it left off.
+
+#       (NOTE): IN CONCLUSION: When you read a program, don't read from top to bottom. Instead, follow the flow of execution.
+
+#   *3.9 - Parameters and Arguments*
+
+#       Some functions take more than one argument. For example, pow takes two arguments, the base and the exponent.
+#       Inside the function, the values that are passed get assigned to variables called parameters.
+
+#       Here is an example of a user-defined function that has a parameter:
+
+            def printTwice(bruce):
+              print bruce, bruce
+
+#       This function takes a single argument and assigns it to a parameter named bruce.
+#       The value of the parameter (at this point we have no idea what it will be) is printed twice, followed by a newline.
+#       The name bruce was chosen to suggest that the name you give a parameter is up to you, but in general, you want to choose something more illustrative than bruce.
+
+#       The function 'printTwice' works for any type that can be printed:
+
+            >>> printTwice('Spam')
+            Spam Spam
+
+            >>> printTwice(5)
+            5 5
+
+            >>> printTwice(3.14159)
+            3.14159 3.14159
+
+#       In the first function call, the argument is a string. In the second, it's an integer. In the third, it's a float.
+
+#   *3.10 - Variables and Parameters Are Local*
+
+#       When you create a local variable inside a function, it only exists inside the function, and you cannot use it outside. For example:
+
+            def catTwice(part1, part2):
+              cat = part1 + part2
+              printTwice(cat)
+
+#       This function takes two arguments, concatenates them, and then prints the result twice.
+#       We can call the function with two strings:
+
+            >>> chant1 = "Pie Jesu domine, "
+            >>> chant2 = "Dona eis requiem."
+            >>> catTwice(chant1, chant2)
+            Pie Jesu domine, Dona eis requiem. Pie Jesu domine, Dona eis requiem.
+
+#       When catTwice terminates, the variable cat is destroyed. If we try to print it, we get an error:
+
+            >>> print cat
+            NameError: cat
+
+#       Parameters are also local. For example, outside the function printTwice, there is no such thing as bruce.
+#       If you try to use it, Python will complain.
+
+#   *3.11 - Stack Diagrams*
+
+#       To keep track of which variables can be used where, it is sometimes useful to draw a stack diagram.
+#       Like state diagrams, stack diagrams show the value of each variable, but they also show the function to which each variable belongs.
+
+#       Each function is represented by a frame. A frame is a box with the name of a function beside it and the parameters and variables of the function inside it.
+#       The stack diagram for the previous example looks like this (go to link):
+
+            http://www.greenteapress.com/thinkpython/thinkCSpy/html/illustrations/stack.png
+
+#       if we try to access cat from within printTwice, we get a NameError:
+
+            Traceback (innermost last):
+              File "test.py", line 13, in __main__
+                catTwice(chant1, chant2)
+              File "test.py", line 5, in catTwice
+                printTwice(cat)
+              File "test.py", line 9, in printTwice
+                print cat
+            NameError: cat
+
+#       This list of functions is called a 'traceback'. It tells you what program file the error occurred in, and what line, and what functions were executing at the time.
+#       It also shows the line of code that caused the error.
+
+#       Notice the similarity between the traceback and the stack diagram. It's not a coincidence.
