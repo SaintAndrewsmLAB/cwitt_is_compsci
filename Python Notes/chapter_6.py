@@ -48,3 +48,7 @@
 #       NOTE: If the condition if false the first time through the loop, the statements inside the loop are never executed.
 
 #       If the body of the loop does not change that value of the variable, the loop will never terminate. This is called an "infinite loop"
+
+#   *6.5 - Encapsulation and Generalization*
+
+#       
