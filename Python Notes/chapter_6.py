@@ -1,6 +1,6 @@
 #############
 #   Carson Witt
-#   Independant Study: Intro. to Computer Science - Fundamentals of Programming
+#   Independent Study: Intro. to Computer Science - Fundamentals of Programming
 #   Mr. Nelson
 #   NOTES
 #############
@@ -95,3 +95,13 @@
             4      8      12     16     20     24
             5      10     15     20     25     30
             6      12     18     24     30     36
+
+#   *6.9 - Functions*
+
+#       A few times now, we have mentioned "all the things functions are good for." By now, you might be wondering what exactly those things are.
+#       Here are some of them:
+
+#           *Giving a name to a sequence of statements makes your program easier to read and debug.
+#           *Dividing a long program into functions allows you to separate parts of the program, debug them in isolation, and then compose them into a whole.
+#           *Functions facilitate both recursion and iteration.
+#           *Well-designed functions are often useful for many programs. Once you write and debug one, you can reuse it.
